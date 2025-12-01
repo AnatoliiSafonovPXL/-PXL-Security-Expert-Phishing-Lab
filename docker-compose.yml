@@ -20,6 +20,16 @@ services:
       - phishing-lab
     command: bash
 
+  mailhog:
+    image: mailhog/mailhog:latest
+    container_name: phishing-lab-mailhog
+    ports:
+      - "1025:1025"  # SMTP server
+      - "8025:8025"  # Web UI to view emails
+    restart: unless-stopped
+    networks:
+      - phishing-lab
+
 networks:
   phishing-lab:
     driver: bridge
