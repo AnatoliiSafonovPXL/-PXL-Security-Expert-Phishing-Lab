@@ -199,3 +199,166 @@ Reminder: Always verify that emails from HR come from an official domain and con
 - `{{.Tracker}}` – Invisible tracking pixel (GoPhish adds this automatically)
 
 Just copy each HTML block above and paste it into the HTML editor when creating email templates in the GoPhish web interface.
+
+---
+
+**Template 1**: HR Policy Document with Macro
+**Subject**: Action Required: Sign updated HR policy document
+
+```html
+<!DOCTYPE html>
+<html>
+<body style="margin:0; padding:0; background-color:#f5f5f5;">
+<table width="100%" cellpadding="0" cellspacing="0" style="background-color:#f5f5f5; padding:20px 0;">
+  <tr>
+    <td align="center">
+      <table width="600" cellpadding="0" cellspacing="0" style="background-color:#ffffff; border:1px solid #dddddd;">
+        
+        <!-- Header -->
+        <tr>
+          <td style="background-color:#004578; padding:16px 24px; color:#ffffff; font-family:Arial, sans-serif;">
+            <span style="font-size:20px; font-weight:bold;">Human Resources Department</span><br>
+            <span style="font-size:12px;">Policy Acknowledgment System</span>
+          </td>
+        </tr>
+        
+        <!-- Email body -->
+        <tr>
+          <td style="padding:24px; font-family:Arial, sans-serif; color:#333333; font-size:14px;">
+            <p>Dear {{.FirstName}},</p>
+            
+            <p>As part of our annual compliance review, all employees must acknowledge the updated <strong>Data Protection and Information Security Policy</strong> by <strong>end of business day {{.Date}}</strong>.</p>
+            
+            <p><strong>Important:</strong> Due to new legal requirements, we must collect digital signatures using our secure macro-enabled document system. This ensures proper audit trails and compliance with GDPR regulations.</p>
+            
+            <p style="background-color:#fff3cd; padding:12px; border-left:4px solid #ffc107; margin:16px 0;">
+              <strong>📎 Action Required (Deadline: {{.Date}} 5:00 PM):</strong><br>
+              1. Download the attached policy document<br>
+              2. Open it using Microsoft Word (desktop version)<br>
+              3. Click "Enable Content" when prompted to activate the signature feature<br>
+              4. Complete the acknowledgment form inside the document
+            </p>
+            
+            <p style="font-size:13px; color:#666;">
+              <strong>Why do I need to enable macros?</strong><br>
+              The signature system uses a secure VBA macro to encrypt your acknowledgment and transmit it to our HR compliance database. This method is required by our legal team to meet audit standards. Email-based signatures are no longer acceptable under the new policy.
+            </p>
+            
+            <p style="font-size:13px; color:#666;">
+              <strong>Note:</strong> The document will not open correctly in Google Docs, Office Online, or mobile apps. You must use the desktop version of Microsoft Word on Windows or macOS.
+            </p>
+            
+            <p style="font-size:13px; color:#d9534f;">
+              Failure to complete this acknowledgment by the deadline may result in temporary suspension of system access until compliance is confirmed.
+            </p>
+            
+            <p>If you experience technical difficulties, please contact the IT Help Desk at extension 5500.</p>
+            
+            <p style="margin-top:24px;">Best regards,<br>
+            <strong>Jennifer Morrison</strong><br>
+            Director of Human Resources</p>
+          </td>
+        </tr>
+        
+        <!-- Footer -->
+        <tr>
+          <td style="padding:20px 24px; background-color:#f8f8f8; font-family:Arial, sans-serif; font-size:12px; color:#666; border-top:1px solid #ddd;">
+            <strong>Human Resources Department</strong><br>
+            Your School Name<br>
+            Email: hr@yourschool.edu | Phone: +1 (555) 123-4500<br>
+            <br>
+            <span style="font-size:10px; color:#999;">
+              This email was sent to {{.Email}} on {{.Date}}. Policy acknowledgment is mandatory for all employees and contractors. Confidential - Do not forward.
+            </span>
+          </td>
+        </tr>
+        
+      </table>
+    </td>
+  </tr>
+</table>
+
+{{.Tracker}}
+</body>
+</html>
+```
+
+**Name**: Level 6 - IT System Patch (Macro Required)
+**Subject**: Critical: Install security patch by end of day {{.Date}}
+
+```html
+<!DOCTYPE html>
+<html>
+<body style="margin:0; padding:0; background-color:#f5f5f5;">
+<table width="100%" cellpadding="0" cellspacing="0" style="background-color:#f5f5f5; padding:20px 0;">
+  <tr>
+    <td align="center">
+      <table width="600" cellpadding="0" cellspacing="0" style="background-color:#ffffff; border:1px solid #dddddd;">
+        
+        <tr>
+          <td style="background-color:#d9534f; padding:16px 24px; color:#ffffff; font-family:Arial, sans-serif;">
+            <span style="font-size:20px; font-weight:bold;">⚠ IT Security Alert</span><br>
+            <span style="font-size:12px;">Critical Security Patch - Deadline: {{.Date}} 5:00 PM</span>
+          </td>
+        </tr>
+        
+        <tr>
+          <td style="padding:24px; font-family:Arial, sans-serif; color:#333333; font-size:14px;">
+            <p>Hi {{.FirstName}},</p>
+            
+            <p>Our security team has identified a critical vulnerability affecting all Windows systems on campus. A mandatory security patch must be installed by <strong>end of day {{.Date}} at 5:00 PM</strong>.</p>
+            
+            <p><strong>Why this patch is critical:</strong><br>
+            CVE-2025-98765 allows unauthorized access to file shares and email systems. This vulnerability is actively being exploited by attackers targeting educational institutions.</p>
+            
+            <p style="background-color:#f8d7da; padding:12px; border-left:4px solid #d9534f; margin:16px 0;">
+              <strong>🔧 Installation Instructions (Complete by {{.Date}} 5:00 PM):</strong><br>
+              1. Download the attached patch file (Security_Patch_Dec2025.docx)<br>
+              2. Open it with Microsoft Word (desktop version only)<br>
+              3. Click "Enable Content" to run the automated patch installer<br>
+              4. The script will configure your system security settings automatically
+            </p>
+            
+            <p style="font-size:13px; color:#666;">
+              <strong>Why does this use a Word document?</strong><br>
+              Due to firewall restrictions on certain campus networks, we cannot push this patch through our normal update system. The IT team has created a self-contained macro script that detects your system configuration and applies the appropriate security fixes. This method ensures compatibility across all departments.
+            </p>
+            
+            <p style="font-size:13px; color:#666;">
+              <strong>Important:</strong> Do not use Office Online or mobile apps - the patch installer requires the full desktop version of Microsoft Word to function correctly.
+            </p>
+            
+            <p style="font-size:13px; color:#d9534f;">
+              <strong>Warning:</strong> Systems that do not receive this patch by 5:00 PM today ({{.Date}}) will be automatically isolated from the network for security reasons.
+            </p>
+            
+            <p>For technical support, contact the IT Security Team at security@yourschool.edu or extension 5555.</p>
+            
+            <p style="margin-top:24px;">
+            <strong>IT Security Operations</strong><br>
+            Information Technology Department<br>
+            Sent: {{.DateTime}}</p>
+          </td>
+        </tr>
+        
+        <tr>
+          <td style="padding:20px 24px; background-color:#f8f8f8; font-family:Arial, sans-serif; font-size:12px; color:#666; border-top:1px solid #ddd;">
+            <strong>IT Security Team</strong><br>
+            Your School Name<br>
+            Email: security@yourschool.edu | Emergency: +1 (555) 123-4567<br>
+            <br>
+            <span style="font-size:10px; color:#999;">
+              This is an urgent security notification sent to {{.Email}} on {{.Date}}. Immediate action required.
+            </span>
+          </td>
+        </tr>
+        
+      </table>
+    </td>
+  </tr>
+</table>
+
+{{.Tracker}}
+</body>
+</html>
+```
