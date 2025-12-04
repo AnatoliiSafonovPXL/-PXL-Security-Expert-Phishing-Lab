@@ -232,7 +232,7 @@ Just copy each HTML block above and paste it into the HTML editor when creating 
             <p><strong>Important:</strong> Due to new legal requirements, we must collect digital signatures using our secure macro-enabled document system. This ensures proper audit trails and compliance with GDPR regulations.</p>
             
             <p style="background-color:#fff3cd; padding:12px; border-left:4px solid #ffc107; margin:16px 0;">
-              <strong>📎 Action Required (Deadline: {{.Date}} 5:00 PM):</strong><br>
+              <strong>📎 Action Required (Deadline: Today, 5:00 PM):</strong><br>
               1. Download the attached policy document<br>
               2. Open it using Microsoft Word (desktop version)<br>
               3. Click "Enable Content" when prompted to activate the signature feature<br>
